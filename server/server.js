@@ -18,14 +18,14 @@ app.use("^/$", (req, res, next) => {
       return res.status(500).send("Some error happened");
     }
     return res.send(
-      data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
-      )
+      data
     );
   });
 });
-
+// .replace(
+//   '<div id="root"></div>',
+//   `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
+// )
 app.use(express.static(path.resolve(__dirname, '..', 'build')))
 
 app.listen(PORT, () => {

@@ -6,6 +6,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "@babel/register": "^7.7.0",
+    "concurrently": "^6.5.1",
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
     "react": "^16.11.0",
@@ -13,8 +14,9 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run client:start\" \"node server/index.js\"",
     "build": "react-scripts build",
+    "client:start": " set PORT=8001 && react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ssr": "node server/index.js"
